@@ -38,11 +38,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppMain.cs" />
-    <Compile Include="GameObjects\GameObjectAbstract.cs" />
-    <Compile Include="GameObjects\PlayerObject.cs" />
     <Compile Include="ScreenObjects\ScreenObjectAbstract.cs" />
     <Compile Include="ScreenObjects\PlayScreenObject.cs" />
-    <Compile Include="GameObjects\GravitywellObject.cs" />
+    <Compile Include="GameObjects\Player\GravitywellObject.cs" />
+    <Compile Include="GameObjects\Player\PlayerObject.cs" />
+    <Compile Include="GameObjects\Player\Weapons\WeaponObjectAbstract.cs" />
+    <Compile Include="GameObjects\Player\Bullets\BulletObjectAbstract.cs" />
+    <Compile Include="GameObjects\GameObjectAbstract.cs" />
+    <Compile Include="GameObjects\Player\Bullets\SimpleBulletObject.cs" />
+    <Compile Include="GameObjects\Player\Weapons\GravityWeaponObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -56,10 +60,13 @@
     <Folder Include="Resources\" />
     <Folder Include="Resources\Sprites\" />
     <Folder Include="ScreenObjects\" />
+    <Folder Include="GameObjects\Player\" />
+    <Folder Include="GameObjects\Player\Weapons\" />
+    <Folder Include="GameObjects\Player\Bullets\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Sprites\pokeball_color.png" />
     <Content Include="Resources\Sprites\playerSprite.png" />
     <Content Include="Resources\Sprites\gravitywellSprite.png" />
+    <Content Include="Resources\Sprites\pokeball_color1_ss.png" />
   </ItemGroup>
 </Project>

@@ -20,12 +20,15 @@ namespace GShooter_PSSuite
 		float ananlogScale = 10f;
 
 		GravitywellObject gravitywell_1;
+		GravityWeaponObject gravityWeapon;
 
 
 		public PlayerObject (string spriteFilePath) : base(spriteFilePath)
 		{
 			gravitywell_1 =  new GravitywellObject("/Application/Resources/Sprites/gravitywellSprite.png");
 			gravitywell_1.sprite.Position =  new Vector2(200,200);
+
+			gravityWeapon =  new GravityWeaponObject(100);
 
 		}
 
@@ -34,6 +37,10 @@ namespace GShooter_PSSuite
 		{
 			scene.AddChild(sprite); // add this player sprite
 			scene.AddChild(gravitywell_1.sprite);
+			foreach(BulletObjectAbstract bullet in gravityWeapon.bulletsArray)
+			{
+				scene.AddChild(bullet.sprite);
+			}
 
 		}
 

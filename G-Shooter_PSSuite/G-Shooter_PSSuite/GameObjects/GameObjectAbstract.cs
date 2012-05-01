@@ -18,6 +18,9 @@ namespace GShooter_PSSuite
 
 		public SpriteUV sprite;
 
+		public Vector2 velocity;
+		public float mass;
+
 
 		public GameObjectAbstract (string spriteFilePath)
 		{
@@ -27,6 +30,9 @@ namespace GShooter_PSSuite
 			sprite.Quad.S = texture_info.TextureSizef;
 			sprite.CenterSprite();
 			sprite.Position = new Vector2(100,100);
+
+			velocity =  new Vector2(0,0);
+			mass = 10.0f;
 
 		}
 
