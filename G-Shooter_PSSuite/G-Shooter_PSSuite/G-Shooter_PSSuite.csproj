@@ -34,9 +34,14 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Sce.Pss.Core" />
+    <Reference Include="Sce.Pss.HighLevel.GameEngine2D" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppMain.cs" />
+    <Compile Include="GameObjects\GameObjectAbstract.cs" />
+    <Compile Include="GameObjects\PlayerObject.cs" />
+    <Compile Include="ScreenObjects\ScreenObjectAbstract.cs" />
+    <Compile Include="ScreenObjects\PlayScreenObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -45,4 +50,15 @@
     <ShaderProgram Include="shaders\Texture.vcg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Sce\Sce.Pss.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="GameObjects\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Sprites\" />
+    <Folder Include="ScreenObjects\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Sprites\pokeball_color.png" />
+    <Content Include="Resources\Sprites\playerSprite.png" />
+    <Content Include="Resources\Sprites\gravitywellSprite.png" />
+  </ItemGroup>
 </Project>
