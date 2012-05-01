@@ -15,8 +15,7 @@ namespace GShooter_PSSuite
 	
 	public class AppMain
 	{
-
-		static Scene scene_Main;
+		
 		
 		static PlayScreenObject testScreen;
 		static PlayerObject player;
@@ -49,8 +48,6 @@ namespace GShooter_PSSuite
 		{
 			Director.Instance.GL.Context.SetClearColor(Colors.Grey20);
 
-			scene_Main = new Scene();
-			scene_Main.Camera.SetViewFromViewport();
 
 			testScreen =  new PlayScreenObject();
 			testScreen.scene.Camera.SetViewFromViewport();
@@ -69,6 +66,8 @@ namespace GShooter_PSSuite
 		{
 			// Query gamepad for current state
 			var gamePadData = GamePad.GetData (0);
+			player.Update(gamePadData);
+
 			Director.Instance.Update();
 
 		}

@@ -17,18 +17,32 @@ namespace GShooter_PSSuite
 
 
 
+		float ananlogScale = 10f;
+
 
 		public PlayerObject (string spriteFilePath) : base(spriteFilePath)
 		{
 
 		}
 
-		public override void Update()
+		
+
+
+		public void Update(GamePadData gamePadData)
 		{
 
+			Vector2 tempPosition =  sprite.Position;
+			
+			tempPosition.X += gamePadData.AnalogLeftX * ananlogScale;
+			tempPosition.Y += - gamePadData.AnalogLeftY * ananlogScale;
+			
+			tempPosition.X += gamePadData.AnalogRightX * ananlogScale;
+			tempPosition.Y += - gamePadData.AnalogRightY * ananlogScale;
+
+
+			sprite.Position = tempPosition;
 
 		}
-
 
 
 

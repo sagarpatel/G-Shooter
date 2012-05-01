@@ -16,6 +16,7 @@ namespace GShooter_PSSuite
 
 	public class PlayScreenObject : ScreenObjectAbstract
 	{
+		
 		public PlayScreenObject () : base()
 		{
 
@@ -24,11 +25,13 @@ namespace GShooter_PSSuite
 		public override void Update()
 		{
 
+
 		}
 
+		
 		public override void Render()
 		{
-			
+
 		}
 
 
