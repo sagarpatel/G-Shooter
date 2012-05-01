@@ -42,6 +42,7 @@
     <Compile Include="GameObjects\PlayerObject.cs" />
     <Compile Include="ScreenObjects\ScreenObjectAbstract.cs" />
     <Compile Include="ScreenObjects\PlayScreenObject.cs" />
+    <Compile Include="GameObjects\GravitywellObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />

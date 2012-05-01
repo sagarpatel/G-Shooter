@@ -19,18 +19,29 @@ namespace GShooter_PSSuite
 
 		float ananlogScale = 10f;
 
+		GravitywellObject gravitywell_1;
+
 
 		public PlayerObject (string spriteFilePath) : base(spriteFilePath)
 		{
+			gravitywell_1 =  new GravitywellObject("/Application/Resources/Sprites/gravitywellSprite.png");
+			gravitywell_1.sprite.Position =  new Vector2(200,200);
 
 		}
 
 		
+		public void AddToScene(Scene scene)
+		{
+			scene.AddChild(sprite); // add this player sprite
+			scene.AddChild(gravitywell_1.sprite);
+
+		}
 
 
 		public void Update(GamePadData gamePadData)
 		{
 
+			//Handle player controls
 			Vector2 tempPosition =  sprite.Position;
 			
 			tempPosition.X += gamePadData.AnalogLeftX * ananlogScale;
@@ -41,6 +52,32 @@ namespace GShooter_PSSuite
 
 
 			sprite.Position = tempPosition;
+
+
+
+			// handle gravity well controls
+
+
+			Vector2 touchPosition = new Vector2(0,0);
+			List<TouchData> touch_data_list = Touch.GetData(0);
+
+			if(touch_data_list.Count > 0)
+			{
+				TouchData touchData = touch_data_list[0];
+				
+				touchPosition.X =  touchData.X * 960f ;
+				touchPosition.Y = - touchData.Y * 544f ;
+				/*
+				System.Console.WriteLine( "X: {0:G}", touchPosition.X );
+				System.Console.WriteLine( "Y: {0:G}", touchPosition.Y );
+				*/
+				if (touchData.X != 0 && touchData.Y != 0)
+				{
+					gravitywell_1.sprite.Position = touchPosition + new Vector2(480,272); //shift for Vita's coordinate system
+				}
+
+			}
+
 
 		}
 

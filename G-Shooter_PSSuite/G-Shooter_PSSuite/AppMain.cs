@@ -15,7 +15,7 @@ namespace GShooter_PSSuite
 	
 	public class AppMain
 	{
-		
+
 		
 		static PlayScreenObject testScreen;
 		static PlayerObject player;
@@ -52,7 +52,10 @@ namespace GShooter_PSSuite
 			testScreen =  new PlayScreenObject();
 			testScreen.scene.Camera.SetViewFromViewport();
 			player = new PlayerObject("/Application/Resources/Sprites/playerSprite.png");
-			testScreen.scene.AddChild(player.sprite);
+			
+			player.AddToScene(testScreen.scene);
+
+			//testScreen.scene.AddChild(player.sprite);
 
 
 			Director.Instance.RunWithScene( testScreen.scene, true );
