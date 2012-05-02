@@ -21,13 +21,16 @@ namespace GShooter_PSSuite
 
 		}
 
-
-		public override void Update()
+		
+		public override void Update(float dt)
 		{
 
+			base.Update(dt);
 			
-		}
 
+
+		}
+		
 
 
 	}

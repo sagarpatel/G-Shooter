@@ -19,6 +19,7 @@ namespace GShooter_PSSuite
 		
 		static PlayScreenObject testScreen;
 		static PlayerObject player;
+		static Timer globalTimer;
 
 		
 		public static void Main (string[] args)
@@ -48,6 +49,7 @@ namespace GShooter_PSSuite
 		{
 			Director.Instance.GL.Context.SetClearColor(Colors.Grey20);
 
+			globalTimer =  new Timer();
 
 			testScreen =  new PlayScreenObject();
 			testScreen.scene.Camera.SetViewFromViewport();
@@ -69,9 +71,11 @@ namespace GShooter_PSSuite
 		{
 			// Query gamepad for current state
 			var gamePadData = GamePad.GetData (0);
-			player.Update(gamePadData);
+			player.Update(gamePadData, (float)globalTimer.Milliseconds());
 
 			Director.Instance.Update();
+
+			globalTimer.Reset();
 
 		}
 

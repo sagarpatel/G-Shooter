@@ -33,6 +33,51 @@ namespace GShooter_PSSuite
 
 		}
 
+		// player calls this to shoot, handles cooldown
+		public void FireWeapon(Vector2 playerPosition, float dt)
+		{
+
+			//cooldown
+
+			FireBullet(playerPosition);
+
+
+		}
+
+
+
+		// fires a single bullet
+		private void FireBullet(Vector2 playerPosition)
+		{
+			foreach(BulletObjectAbstract bullet in bulletsArray)
+			{
+				if(bullet.isAlive == false)
+				{
+					bullet.velocity = bulletInitialVelocity;
+					bullet.sprite.Position = playerPosition;
+					bullet.isAlive = true;
+					break;
+				}
+
+			}
+		}
+
+		public override void Update(float dt)
+		{
+
+			foreach(BulletObjectAbstract bullet in bulletsArray)
+			{
+				if(bullet.isAlive == true)
+				{
+					bullet.Update(dt);
+				}
+
+			}
+
+
+
+		}
+
 
 
 

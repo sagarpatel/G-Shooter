@@ -20,6 +20,7 @@ namespace GShooter_PSSuite
 
 		public Vector2 velocity;
 		public float mass;
+		public bool isAlive;
 
 
 		public GameObjectAbstract (string spriteFilePath)
@@ -34,12 +35,17 @@ namespace GShooter_PSSuite
 			velocity =  new Vector2(0,0);
 			mass = 10.0f;
 
+			isAlive = false;
+
 		}
 
 
-		public virtual void Update()
+		public virtual void Update(float dt)
 		{
 
+			Vector2 tempPosition =  sprite.Position;
+			tempPosition += velocity * dt;
+			sprite.Position = tempPosition;
 
 
 		}

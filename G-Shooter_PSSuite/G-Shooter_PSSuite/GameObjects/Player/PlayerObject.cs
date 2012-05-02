@@ -45,7 +45,7 @@ namespace GShooter_PSSuite
 		}
 
 
-		public void Update(GamePadData gamePadData)
+		public void Update(GamePadData gamePadData, float dt)
 		{
 
 			//Handle player controls
@@ -84,6 +84,22 @@ namespace GShooter_PSSuite
 				}
 
 			}
+
+
+
+			//handle buttons
+
+			//firing
+			
+			if( gamePadData.Buttons == GamePadButtons.L || gamePadData.Buttons == GamePadButtons.R)
+			{
+				gravityWeapon.FireWeapon(sprite.Position, dt);	
+			}
+			
+			//update players's objects, ex; weapons
+			gravityWeapon.Update(dt);
+
+
 
 
 		}

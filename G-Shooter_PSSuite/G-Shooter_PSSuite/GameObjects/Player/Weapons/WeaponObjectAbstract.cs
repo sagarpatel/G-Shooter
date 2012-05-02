@@ -20,17 +20,21 @@ namespace GShooter_PSSuite
 
 		public BulletObjectAbstract[] bulletsArray;
 		public int maxBulletCount;
+		public Vector2 bulletInitialVelocity;
 
 		public float fireCooldown;
+
 
 
 		public WeaponObjectAbstract (int maxBullets)
 		{
 			int maxBulletCount = maxBullets;
+			
+			bulletInitialVelocity = new Vector2(1,0);
 
 		}
 
-		public virtual void Update()
+		public virtual void Update(float dt)
 		{
 
 
