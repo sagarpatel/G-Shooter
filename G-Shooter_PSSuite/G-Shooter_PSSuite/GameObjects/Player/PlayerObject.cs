@@ -28,7 +28,7 @@ namespace GShooter_PSSuite
 			gravitywell_1 =  new GravitywellObject("/Application/Resources/Sprites/gravitywellSprite.png");
 			gravitywell_1.sprite.Position =  new Vector2(200,200);
 
-			gravityWeapon =  new GravityWeaponObject(10);
+			gravityWeapon =  new GravityWeaponObject(50);
 
 		}
 
@@ -95,11 +95,19 @@ namespace GShooter_PSSuite
 			{
 				gravityWeapon.FireWeapon(sprite.Position, dt);	
 			}
+
+
+
+			//update gravity inlfuences
+			gravitywell_1.ApplyGravityToObjectArray( gravityWeapon.bulletsArray);
+
+
+
 			
 			//update players's objects, ex; weapons
 			gravityWeapon.Update(dt);
 
-
+			
 
 
 		}

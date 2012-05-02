@@ -33,7 +33,7 @@ namespace GShooter_PSSuite
 			}
 
 			bulletMaxVelocity = 10f;
-			bulletMaxLife = 200f; // in milliseconds,ds
+			bulletMaxLife = 20000f; // in milliseconds,ds
 			fireCooldown = 20;
 
 		}

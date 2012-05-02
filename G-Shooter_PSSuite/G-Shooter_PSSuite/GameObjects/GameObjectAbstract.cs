@@ -19,6 +19,7 @@ namespace GShooter_PSSuite
 		public SpriteUV sprite;
 
 		public Vector2 velocity;
+		public Vector2 acceleration;
 		public float mass;
 		public bool isAlive;
 
@@ -48,10 +49,18 @@ namespace GShooter_PSSuite
 		{
 
 			Vector2 tempPosition =  sprite.Position;
+
+			velocity += acceleration * dt;
 			tempPosition += velocity * dt;
 			sprite.Position = tempPosition;
+			acceleration = new Vector2(0,0);
 
 			lifeTime += dt;
+
+			if(Vector2.Length(sprite.Position) > 2000)
+			{
+				KillSelf();
+			}
 
 
 		}
