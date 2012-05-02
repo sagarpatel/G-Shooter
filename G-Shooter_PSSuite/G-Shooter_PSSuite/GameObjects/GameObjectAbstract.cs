@@ -22,6 +22,8 @@ namespace GShooter_PSSuite
 		public float mass;
 		public bool isAlive;
 
+		public float lifeTime;
+
 
 		public GameObjectAbstract (string spriteFilePath)
 		{
@@ -37,6 +39,8 @@ namespace GShooter_PSSuite
 
 			isAlive = false;
 
+			lifeTime = 0;
+
 		}
 
 
@@ -47,6 +51,19 @@ namespace GShooter_PSSuite
 			tempPosition += velocity * dt;
 			sprite.Position = tempPosition;
 
+			lifeTime += dt;
+
+
+		}
+
+
+		public virtual void KillSelf()
+		{
+
+			isAlive = false;
+			velocity =  new Vector2(0,0);
+			sprite.Position =  new Vector2(100,100);
+			lifeTime = 0;
 
 		}
 

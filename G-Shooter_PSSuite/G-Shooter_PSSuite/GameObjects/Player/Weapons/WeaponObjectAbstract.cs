@@ -23,14 +23,18 @@ namespace GShooter_PSSuite
 		public Vector2 bulletInitialVelocity;
 
 		public float fireCooldown;
+		public float cooldownCounter;
 
 
 
 		public WeaponObjectAbstract (int maxBullets)
 		{
 			int maxBulletCount = maxBullets;
-			
+
 			bulletInitialVelocity = new Vector2(1,0);
+
+			fireCooldown = 100;
+			cooldownCounter = 0;
 
 		}
 

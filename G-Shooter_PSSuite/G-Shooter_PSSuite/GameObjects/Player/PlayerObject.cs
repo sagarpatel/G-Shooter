@@ -28,7 +28,7 @@ namespace GShooter_PSSuite
 			gravitywell_1 =  new GravitywellObject("/Application/Resources/Sprites/gravitywellSprite.png");
 			gravitywell_1.sprite.Position =  new Vector2(200,200);
 
-			gravityWeapon =  new GravityWeaponObject(100);
+			gravityWeapon =  new GravityWeaponObject(10);
 
 		}
 

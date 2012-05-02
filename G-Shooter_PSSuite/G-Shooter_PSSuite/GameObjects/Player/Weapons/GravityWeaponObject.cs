@@ -20,6 +20,7 @@ namespace GShooter_PSSuite
 
 
 		public float bulletMaxVelocity;
+		public float bulletMaxLife;
 
 
 		public GravityWeaponObject (int maxBullets) : base(maxBullets)
@@ -31,15 +32,24 @@ namespace GShooter_PSSuite
 				bulletsArray[i] = new SimpleBulletObject("/Application/Resources/Sprites/pokeball_color1_ss.png");
 			}
 
+			bulletMaxVelocity = 10f;
+			bulletMaxLife = 200f; // in milliseconds,ds
+			fireCooldown = 20;
+
 		}
 
 		// player calls this to shoot, handles cooldown
 		public void FireWeapon(Vector2 playerPosition, float dt)
 		{
 
-			//cooldown
 
-			FireBullet(playerPosition);
+			//cooldown
+			cooldownCounter += dt;
+			if(cooldownCounter > fireCooldown)
+			{
+				FireBullet(playerPosition);
+				cooldownCounter = 0;
+			}
 
 
 		}
@@ -70,6 +80,10 @@ namespace GShooter_PSSuite
 				if(bullet.isAlive == true)
 				{
 					bullet.Update(dt);
+					if(bullet.lifeTime > bulletMaxLife)
+					{
+						bullet.KillSelf();
+					}
 				}
 
 			}

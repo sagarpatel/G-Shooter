@@ -25,10 +25,8 @@ namespace GShooter_PSSuite
 		public override void Update(float dt)
 		{
 
-			base.Update(dt);
+			base.Update(dt);	
 			
-
-
 		}
 		
 
